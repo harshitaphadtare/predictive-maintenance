@@ -31,6 +31,8 @@ def load_data(dataset_id="FD001", dataset_type="train"):
 
     return df
 
+
+
 def generate_labels(dataset_id="FD001", dataset_type="train"):
 
     '''
