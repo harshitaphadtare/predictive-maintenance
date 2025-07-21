@@ -23,6 +23,7 @@ def test_generate_labels_train():
     df = generate_labels('FD001','train')
 
     assert 'RUL' in df.columns
+    assert 'label' in df.columns
     assert df['RUL'].min() == 0
     assert df.shape[0] > 0
 

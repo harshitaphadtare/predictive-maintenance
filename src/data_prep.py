@@ -33,12 +33,11 @@ def load_data(dataset_id="FD001", dataset_type="train"):
 
 
 
-def generate_labels(dataset_id="FD001", dataset_type="train"):
+def generate_labels(dataset_id="FD001", dataset_type="train",failure_threshold=30):
 
     '''
-        Generates RUL labels for datasets. Returns Processed 
-        DataFrame with RUL column.
-
+        Generates RUL labels and binary near-failure 
+        classification labels
         train: for every engine we calculate rul
         test: engines do not run to failure, so we need to 
         use the RUL_FD001.txt file to assign the actual remaining 
@@ -56,7 +55,11 @@ def generate_labels(dataset_id="FD001", dataset_type="train"):
                 [f'op_setting_{i}' for i in range(1,4)] + \
                 [f'sensor_{i}' for i in range(1,22)] 
 
+        #regression target
         df['RUL'] = df.groupby('unit_number')['time_in_cycles'].transform('max') - df['time_in_cycles']
+
+        #binary classification target
+        df['label_1'] = df['RUL'].apply(lambda x: 1 if x <= failure_threshold else 0)
 
         #save data to processed 
         output_path = BASE_PROCESSED_PATH + f'/{dataset_id}/train_{dataset_id}.csv'
@@ -87,12 +90,12 @@ def generate_labels(dataset_id="FD001", dataset_type="train"):
         #merge RUL into test data
         df_test = df_test.merge(last_cycles,on=['unit_number','time_in_cycles'],how='left')
 
+        # Add binary classification label
+        df_test['label'] = df_test['RUL'].apply(lambda x: 1 if x <= failure_threshold else 0)
+
+
         output_path = BASE_PROCESSED_PATH + f'/{dataset_id}/test_{dataset_id}.csv'
         df_test.to_csv(output_path,index=False)
 
         return df_test
 
-
-
-
-    

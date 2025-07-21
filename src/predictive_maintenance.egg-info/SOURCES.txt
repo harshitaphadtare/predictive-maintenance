@@ -6,3 +6,4 @@ src/predictive_maintenance.egg-info/dependency_links.txt
 src/predictive_maintenance.egg-info/requires.txt
 src/predictive_maintenance.egg-info/top_level.txt
 tests/test_data_prep.py
+tests/test_features.py
