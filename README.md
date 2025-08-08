@@ -7,7 +7,8 @@
 
 A comprehensive machine learning pipeline for predictive maintenance using the NASA Turbofan Engine Degradation Simulation dataset (CMAPSS). This project demonstrates end-to-end ML workflows for both regression (Remaining Useful Life prediction) and classification (failure prediction) tasks.
 
-To know more about the project please checkout my medium post-
+To know more about the project please checkout my medium post- 
+https://medium.com/@hphadtare02/predicting-engine-failure-with-machine-learning-a-cmapss-based-approach-e17f9ece31a8
 
 ## 🚀 Features
 
