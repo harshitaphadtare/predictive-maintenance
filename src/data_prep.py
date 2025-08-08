@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from config import BASE_RAW_PATH, BASE_PROCESSED_PATH
 
@@ -17,7 +18,7 @@ def load_data(dataset_id="FD001", dataset_type="train"):
                 [f'op_setting_{i}' for i in range(1,4)] + \
                 [f'sensor_{i}' for i in range(1,22)] 
 
-    file_path = BASE_RAW_PATH + f'/{dataset_id}/{dataset_type}_{dataset_id}.txt'
+    file_path = os.path.join(BASE_RAW_PATH, dataset_id, f'{dataset_type}_{dataset_id}.txt')
     df = pd.read_csv(file_path, sep=r'\s+', header=None)
     
     #drop empty columns due to irregular spacing
@@ -45,38 +46,26 @@ def generate_labels(dataset_id="FD001", dataset_type="train",failure_threshold=3
     '''
     
     if dataset_type == "train":
-
-        train_path = BASE_RAW_PATH + f'/{dataset_id}/train_{dataset_id}.txt'
-
-        df = pd.read_csv(train_path,sep=' ',header=None)
-        df.drop(columns=[26,27],inplace=True) #Remove trailing empty columns
-        
-        df.columns = ['unit_number','time_in_cycles'] + \
-                [f'op_setting_{i}' for i in range(1,4)] + \
-                [f'sensor_{i}' for i in range(1,22)] 
+        # Use load_data function for consistency
+        df = load_data(dataset_id=dataset_id, dataset_type=dataset_type)
 
         #regression target
         df['RUL'] = df.groupby('unit_number')['time_in_cycles'].transform('max') - df['time_in_cycles']
 
         #binary classification target
-        df['label_1'] = df['RUL'].apply(lambda x: 1 if x <= failure_threshold else 0)
+        df['label'] = df['RUL'].apply(lambda x: 1 if x <= failure_threshold else 0)
 
         #save data to processed 
-        output_path = BASE_PROCESSED_PATH + f'/{dataset_id}/train_{dataset_id}.csv'
+        output_path = os.path.join(BASE_PROCESSED_PATH, dataset_id, f'train_{dataset_id}.csv')
         df.to_csv(output_path,index=False)
 
         return df
 
     else: 
-
-        test_path = BASE_RAW_PATH + f'/{dataset_id}/test_{dataset_id}.txt'
-        rul_path = BASE_RAW_PATH + f'/{dataset_id}/RUL_{dataset_id}.txt'
-
-        df_test = pd.read_csv(test_path,sep=' ',header=None)
-        df_test.drop(columns=[26,27],inplace=True) 
-        df_test.columns = ['unit_number','time_in_cycles'] + \
-                [f'op_setting_{i}' for i in range(1,4)] + \
-                [f'sensor_{i}' for i in range(1,22)] 
+        # Use load_data function for consistency
+        df_test = load_data(dataset_id=dataset_id, dataset_type=dataset_type)
+        
+        rul_path = os.path.join(BASE_RAW_PATH, dataset_id, f'RUL_{dataset_id}.txt')
         
         #Get last cycle for each unit
         last_cycles = df_test.groupby('unit_number')['time_in_cycles'].max().reset_index() 
@@ -93,8 +82,7 @@ def generate_labels(dataset_id="FD001", dataset_type="train",failure_threshold=3
         # Add binary classification label
         df_test['label'] = df_test['RUL'].apply(lambda x: 1 if x <= failure_threshold else 0)
 
-
-        output_path = BASE_PROCESSED_PATH + f'/{dataset_id}/test_{dataset_id}.csv'
+        output_path = os.path.join(BASE_PROCESSED_PATH, dataset_id, f'test_{dataset_id}.csv')
         df_test.to_csv(output_path,index=False)
 
         return df_test

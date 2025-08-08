@@ -1,0 +1,94 @@
+{
+  "regression_test_results": {
+    "regression_ridge": {
+      "MAE:": 25.9579674931141,
+      "RMSE:": 32.63978384996363,
+      "R2:": 0.3830712580890029
+    },
+    "regression_lasso": {
+      "MAE:": 25.76050540645982,
+      "RMSE:": 32.417144417664616,
+      "R2:": 0.39145882688784117
+    },
+    "regression_rf_reg": {
+      "MAE:": 23.794318923790787,
+      "RMSE:": 31.97359131861404,
+      "R2:": 0.40799783503644316
+    },
+    "regression_polynomial": {
+      "MAE:": 25.636207407531657,
+      "RMSE:": 32.88890852331813,
+      "R2:": 0.3736178436083488
+    }
+  },
+  "regression_best_model": {
+    "best_model": "regression_rf_reg",
+    "best_score": 0.40799783503644316,
+    "all_models": {
+      "regression_ridge": {
+        "MAE:": 25.9579674931141,
+        "RMSE:": 32.63978384996363,
+        "R2:": 0.3830712580890029
+      },
+      "regression_lasso": {
+        "MAE:": 25.76050540645982,
+        "RMSE:": 32.417144417664616,
+        "R2:": 0.39145882688784117
+      },
+      "regression_rf_reg": {
+        "MAE:": 23.794318923790787,
+        "RMSE:": 31.97359131861404,
+        "R2:": 0.40799783503644316
+      },
+      "regression_polynomial": {
+        "MAE:": 25.636207407531657,
+        "RMSE:": 32.88890852331813,
+        "R2:": 0.3736178436083488
+      }
+    }
+  },
+  "classification_test_results": {
+    "classification_logistic_reg": {
+      "Precision:": 0.9473684210526315,
+      "Recall:": 0.72,
+      "F1:": 0.8181818181818182,
+      "Accuracy": 0.92
+    },
+    "classification_rf_clf": {
+      "Precision:": 0.9473684210526315,
+      "Recall:": 0.72,
+      "F1:": 0.8181818181818182,
+      "Accuracy": 0.92
+    },
+    "classification_svm": {
+      "Precision:": 0.9473684210526315,
+      "Recall:": 0.72,
+      "F1:": 0.8181818181818182,
+      "Accuracy": 0.92
+    }
+  },
+  "classification_best_model": {
+    "best_model": "classification_logistic_reg",
+    "best_score": 0.8181818181818182,
+    "all_models": {
+      "classification_logistic_reg": {
+        "Precision:": 0.9473684210526315,
+        "Recall:": 0.72,
+        "F1:": 0.8181818181818182,
+        "Accuracy": 0.92
+      },
+      "classification_rf_clf": {
+        "Precision:": 0.9473684210526315,
+        "Recall:": 0.72,
+        "F1:": 0.8181818181818182,
+        "Accuracy": 0.92
+      },
+      "classification_svm": {
+        "Precision:": 0.9473684210526315,
+        "Recall:": 0.72,
+        "F1:": 0.8181818181818182,
+        "Accuracy": 0.92
+      }
+    }
+  }
+}

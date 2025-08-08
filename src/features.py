@@ -1,7 +1,9 @@
 from sklearn.preprocessing import MinMaxScaler
+import numpy as np
+import pandas as pd
 
 #rolling statistics function
-def add_rolling_stats(df,sensor_cols,window=5):
+def add_rolling_stats(df,sensor_cols,window=3):
     for col in sensor_cols:
         #calculating rolling mean
         roll_mean = df.groupby('unit_number')[col].rolling(window).mean()
@@ -26,7 +28,7 @@ def add_lag_features(df,sensor_cols,lags=[1,2]):
 #Normalizing Features
 def scale_features(df,feature_cols):
     scaler = MinMaxScaler()
-    df[feature_cols] = scaler.fit_transform(df[feature_cols])
+    df.loc[:, feature_cols] = scaler.fit_transform(df[feature_cols])
     return df
 
 #delta feature
@@ -34,3 +36,14 @@ def add_delta_features(df,feature_cols):
     for col in feature_cols:
         df[f'{col}_delta'] = df.groupby('unit_number')[col].diff()
     return df
+
+#dropping highly correlated features
+def drop_correlated_features(df,feature_columns,threshold=0.95):
+   
+    corr_matrix = df[feature_columns].corr().abs()
+    upper = corr_matrix.where(np.triu(np.ones(corr_matrix.shape),k=1).astype(bool))
+    to_drop = [column for column in upper.columns if any(upper[column] > threshold)]
+    cleaned_df = df.drop(to_drop,axis=1)
+    
+    return cleaned_df,to_drop
+

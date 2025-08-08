@@ -1,0 +1,152 @@
+{
+  "timestamp": "2025-08-08T05:40:05.468909",
+  "file_path": "sample_input.txt",
+  "dataset_id": "FD001",
+  "failure_threshold": 30,
+  "predictions": [
+    {
+      "RUL": 182.42786084943913,
+      "failure_probability": 8.391568425312443e-05,
+      "failure_prediction": 0,
+      "failure_status": "NORMAL"
+    },
+    {
+      "RUL": 14.516672097942132,
+      "failure_probability": 1.0,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 25.15048299662375,
+      "failure_probability": 1.0,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 14.227659193757532,
+      "failure_probability": 1.0,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 189.26423451175935,
+      "failure_probability": 1.0,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 13.979985622550391,
+      "failure_probability": 1.0,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 191.175041254614,
+      "failure_probability": 0.9999999999999991,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 13.979985622550391,
+      "failure_probability": 0.9999999999999984,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 197.42654944205736,
+      "failure_probability": 0.03320723861228543,
+      "failure_prediction": 0,
+      "failure_status": "NORMAL"
+    },
+    {
+      "RUL": 198.92643906072814,
+      "failure_probability": 0.4740486313400461,
+      "failure_prediction": 0,
+      "failure_status": "NORMAL"
+    },
+    {
+      "RUL": 57.338748102139405,
+      "failure_probability": 0.999999935389936,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 202.6903632816286,
+      "failure_probability": 0.999997749246057,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 186.24983305023662,
+      "failure_probability": 0.9999999999977105,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 47.74042380952381,
+      "failure_probability": 0.9998089856445771,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 189.885041254614,
+      "failure_probability": 0.9999999999909313,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 27.70673031906365,
+      "failure_probability": 1.0,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 47.5356829004329,
+      "failure_probability": 1.0,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 189.885041254614,
+      "failure_probability": 1.0,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 14.036235622550391,
+      "failure_probability": 1.0,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 13.540198998766934,
+      "failure_probability": 1.0,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 24.160077110212637,
+      "failure_probability": 1.0,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 196.98521095359493,
+      "failure_probability": 1.0,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 47.5356829004329,
+      "failure_probability": 0.9999999999900651,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    },
+    {
+      "RUL": 189.885041254614,
+      "failure_probability": 1.0,
+      "failure_prediction": 1,
+      "failure_status": "FAILURE IMMINENT"
+    }
+  ]
+}
